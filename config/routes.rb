@@ -1,13 +1,21 @@
 Rails.application.routes.draw do
   resource :traders, only: [:index, :dashboard]
-  devise_for :customers
+  resource :customers, only: [:index, :dashboard]
   devise_for :traders, controllers: {
         registrations: 'traders/registrations'
       }
-  devise_scope :traders do 
-    
+  devise_scope :traders do    
     authenticated :trader do
      root :to => "trader#dashboard"
+    end  
+  end
+
+  devise_for :customers, controllers: {
+        registrations: 'customers/registrations'
+      }
+  devise_scope :customers do    
+    authenticated :customer do
+      root :to => "customer#dashboard"
     end
   
   end
