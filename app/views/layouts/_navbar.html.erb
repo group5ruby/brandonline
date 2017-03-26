@@ -6,15 +6,22 @@
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-      <li class="nav-item active">
+      <li class="nav-item active mr-4">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>      
+      </li>
+
+      <form class="form-inline my-2 my-lg-0 p2">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search People">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+          
     </ul>
+    
     <ul class="nav navbar-nav navbar-right">
       <% if current_user %>                   
-            <li class="nav-item">
-            <%= link_to "Log out", destroy_customer_session_path, method: 'delete', class:"nav-link" %> 
-            </li>          
+      <li class="nav-item">
+      <%= link_to "Log out", destroy_customer_session_path, method: 'delete', class:"nav-link" %> 
+      </li>          
       <% end %>
     </ul> 
   </div>
